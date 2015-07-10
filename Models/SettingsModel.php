@@ -28,7 +28,8 @@ abstract class SettingsModel extends Model
     {
         $className = get_called_class();
         $manager = new Manager(new $className);
-        return $manager->asArray($asArray)->getOrCreate(['id' => 1]);
+        list ($model, ) = $manager->asArray($asArray)->getOrCreate(['id' => 1]);
+        return $model;
     }
 
     public function t($text)
